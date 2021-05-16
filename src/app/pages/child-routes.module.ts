@@ -5,13 +5,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { VehiculosComponent } from './vehiculos/vehiculos.component';
 import { ConductoresComponent } from './conductores/conductores.component';
 import { PropietariosComponent } from './propietarios/propietarios.component';
+import { InformesComponent } from './informes/informes.component';
 
 const childRoutes: Routes = [
   //rutas de mantemientos
   { path: 'vehiculos', component: VehiculosComponent, },
   { path: 'conductores', component: ConductoresComponent, },
   { path: 'propietarios', component: PropietariosComponent, },
-  { path: 'informes', component: PropietariosComponent, },
+  { path: 'informes', component: InformesComponent, },
 ];
 
 @NgModule({

@@ -21,4 +21,14 @@ export class VehiculosService {
     ); 
   }
 
+  guardarVehiculo(vehiculo: Vehiculo){
+    const url = `${base_url}/vehicles`;
+    return this.httpClient.post(url, vehiculo); 
+  }
+
+  borrarVehiculo(id: number){
+    const url = `${base_url}/vehicles/${id}`;
+    return this.httpClient.delete(url); 
+  }
+
 }

@@ -1,0 +1,77 @@
+<!-- Modal -->
+<div class="fondo-modal" [class.oculto]="modalPropietarioService.ocultarModal">
+    <div class="modal fade show" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" style="display: block;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Nuevo Propietario</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+              (click)="cerrarModal(propietarioForm)"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form #propietarioForm="ngForm">
+            <div class="modal-body">
+                <div class="row">
+                  <div class="col">
+                    <label for="cedula">cedula</label>
+                    <input type="text" class="form-control" placeholder="Cedula" name="cedula" #cedula="ngModel" [(ngModel)]="persona.cedula" id="cedula" required/>
+                    <p class="text-danger" *ngIf="!cedula.valid && cedula.touched">* La cedula es obligatorio</p>
+                  </div>
+                  <div class="col">
+                    <label for="primer nombre">primer nombre</label>
+                    <input type="text" class="form-control" placeholder="Primer Nombre" name="primer_nombre" #primer_nombre="ngModel" [(ngModel)]="persona.primer_nombre" id="primer_nombre" required/>
+                    <p class="text-danger" *ngIf="!primer_nombre.valid && primer_nombre.touched">* El primer nombre es obligatorio</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <label for="segundo nombre">segundo nombre</label>
+                    <input type="text" class="form-control" placeholder="Segundo Nombre" name="segundo_nombre" #segundo_nombre="ngModel" [(ngModel)]="persona.segundo_nombre" id="segundo_nombre" required/>
+                    <p class="text-danger" *ngIf="!segundo_nombre.valid && segundo_nombre.touched">* El segundo nombre es obligatorio</p>
+                  </div>
+                  <div class="col">
+                    <label for="apellidos">apellidos</label>
+                    <input type="text" class="form-control" placeholder="Apellidos" name="apellidos" #apellidos="ngModel" [(ngModel)]="persona.apellidos" id="apellidos" required/>
+                    <p class="text-danger" *ngIf="!apellidos.valid && apellidos.touched">* Los apellidos son obligatorio</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <label for="direccion">direccion</label>
+                    <input type="text" class="form-control" placeholder="Dirección" name="direccion" #direccion="ngModel" [(ngModel)]="persona.direccion" id="direccion" required/>
+                    <p class="text-danger" *ngIf="!direccion.valid && direccion.touched">* La dirección es obligatorio</p>
+                  </div>
+                  <div class="col">
+                    <label for="telefono">teléfono</label>
+                    <input type="text" class="form-control" placeholder="Teléfono" name="telefono" #telefono="ngModel" [(ngModel)]="persona.telefono" id="telefono" required/>
+                    <p class="text-danger" *ngIf="!telefono.valid && telefono.touched">* El teléfono es obligatorio</p>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                      <label for="ciudad">ciudad</label>
+                      <input type="text" class="form-control" placeholder="Ciudad" name="ciudad" #ciudad="ngModel" [(ngModel)]="persona.ciudad" id="ciudad" required/>
+                      <p class="text-danger" *ngIf="!ciudad.valid && ciudad.touched">* La ciudad es obligatorio</p>
+                    </div>
+                  </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" (click)="cerrarModal(propietarioForm)" class="btn btn-secondary" data-dismiss="modal">
+                Cerrar
+              </button>
+              <button *ngIf="tipo === 'propietario'" type="submit" (click)="guardarPropietario(propietarioForm)" [disabled]="!propietarioForm.form.valid" class="btn btn-primary">Guardar Propietario</button>
+              <button *ngIf="tipo === 'conductor'" type="submit" (click)="guardarConductor(propietarioForm)" [disabled]="!propietarioForm.form.valid" class="btn btn-primary">Guardar Conductor</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

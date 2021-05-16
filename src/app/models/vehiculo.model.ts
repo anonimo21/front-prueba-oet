@@ -6,11 +6,11 @@ export class Vehiculo {
     constructor(
         public id: number,
         public placa: string,
-        public colo: string,
+        public color: string,
         public marca: string,
-        public tipo: Tipo,
-        public driver: Driver,
-        public owner: Owner,
+        public type_id?: Tipo,
+        public driver_id?: Driver,
+        public owner_id?: Owner,
     ) {
 
     }

@@ -1,1 +1,38 @@
-<p>informes works!</p>
+<h5 class="text-center">Informes</h5><hr>
+<div class="input-group mb-3">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Buscar..."
+    aria-label="Username"
+    aria-describedby="basic-addon1"
+  />
+</div>
+
+<div
+  *ngIf="cargando"
+  class="spinner-border text-primary"
+  role="status"
+  style="margin-left: 50%"
+>
+  <span class="visually-hidden"></span>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Placa</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Conductor</th>
+      <th scope="col">Propietario</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let informe of informes">
+      <td>{{ informe.placa }}</td>
+      <td>{{ informe.marca }}</td>
+      <td>{{ informe.conductor }}</td>
+      <td>{{ informe.propietario }}</td>
+    </tr>
+  </tbody>
+</table>

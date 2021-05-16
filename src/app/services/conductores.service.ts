@@ -20,4 +20,9 @@ export class ConductoresService {
       map((resp: {data: Driver[], code: number, msg: string}) => resp.data)
     ); 
   }
+
+  borrarConductor(id: number){
+    const url = `${base_url}/drivers/${id}`;
+    return this.httpClient.delete(url); 
+  }
 }

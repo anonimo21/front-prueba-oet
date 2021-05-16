@@ -1,4 +1,5 @@
-<button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#exampleModal">
+<h5 class="text-center">Vehiculos</h5><hr>
+<button type="button" class="btn btn-primary mb-2" (click)="abrirModal()">
   <i class="fas fa-plus-circle"></i> Nuevo
 </button>
 <div class="input-group mb-3">
@@ -53,7 +54,7 @@
         <a href="#" class="btn btn-success"><i class="fas fa-edit"></i></a>
       </td>
       <td>
-        <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+        <a (click)="borrarVehiculo(vehiculo.id)" class="btn btn-danger"><i class="fas fa-trash"></i></a>
       </td>
     </tr>
   </tbody>

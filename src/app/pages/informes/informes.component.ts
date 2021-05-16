@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Informe } from 'src/app/models/informe.model';
+import { InformeService } from 'src/app/services/informe.service';
 
 @Component({
   selector: 'app-informes',
@@ -8,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InformesComponent implements OnInit {
 
-  constructor() { }
+  public informes: Informe[] = [];
+  public cargando: boolean = true;
+
+  constructor(private informeService: InformeService) { }
 
   ngOnInit(): void {
+    this.listarInforme();
+  }
+
+  listarInforme(){
+    this.informeService.cargarInforme()
+    .subscribe((informes: Informe[]) => {
+      this.informes = informes;
+      this.cargando = false;
+    });
   }
 
 }
