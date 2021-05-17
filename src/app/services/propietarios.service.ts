@@ -32,8 +32,21 @@ export class PropietariosService {
     return this.httpClient.post(url, conductor); 
   }
 
+  actualizarPropietario(propietario: Person){
+    const url = `${base_url}/owners/${propietario.id}`;
+    return this.httpClient.put(url, propietario); 
+  }
+
   borrarPropietario(id: number){
     const url = `${base_url}/owners/${id}`;
     return this.httpClient.delete(url); 
+  }
+
+  obtenerPropietarioById(id: number){
+    const url = `${base_url}/owners/${id}`;
+    return this.httpClient.get(url)
+    .pipe(
+      map((resp: Person) => resp)
+    )
   }
 }

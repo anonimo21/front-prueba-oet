@@ -1,0 +1,55 @@
+<h5>Editar Vehiculo</h5>
+<form #vehiculoForm="ngForm">
+  <div class="row">
+    <div class="col">
+      <label for="placa">placa</label>
+      <input type="text" class="form-control" placeholder="Placa" name="placa" id="placa" #placa="ngModel"
+        [(ngModel)]="vehiculo.placa" id="placa" required />
+      <p class="text-danger" *ngIf="!placa.valid && placa.touched">* La placa es obligatorio</p>
+    </div>
+    <div class="col">
+      <label for="color">color</label>
+      <input type="text" class="form-control" placeholder="Color" name="color" id="color" #color="ngModel"
+        [(ngModel)]="vehiculo.color" id="color" required />
+      <p class="text-danger" *ngIf="!placa.valid && placa.touched">* La placa es obligatorio</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label for="marca">marca</label>
+      <input type="text" class="form-control" placeholder="Marca" name="marca" id="marca" #marca="ngModel"
+        [(ngModel)]="vehiculo.marca" id="marca" required />
+      <p class="text-danger" *ngIf="!placa.valid && placa.touched">* La placa es obligatorio</p>
+    </div>
+    <div class="col">
+      <label for="tipo">tipo</label>
+      <select class="form-control" name="type_id" id="type_id" #type_id="ngModel" [(ngModel)]="vehiculo.type_id"
+        id="type_id" required>
+        <option value="1">público</option>
+        <option value="2">privado</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label for="tipo">conductor</label>
+      <select class="form-control" name="driver_id" id="driver_id" #driver_id="ngModel" [(ngModel)]="vehiculo.driver_id"
+        id="driver_id" required>
+        <option *ngFor="let conductor of conductores" [value]="conductor.driver.id">{{conductor.driver.primer_nombre}}
+          {{conductor.driver.apellidos}}</option>
+      </select>
+    </div>
+    <div class="col">
+      <label for="tipo">propietario</label>
+      <select class="form-control" name="owner_id" id="owner_id" #owner_id="ngModel" [(ngModel)]="vehiculo.owner_id"
+        id="owner_id" required>
+        <option *ngFor="let propietario of propietarios" [value]="propietario.owner.id">
+          {{propietario.owner.primer_nombre}} {{propietario.owner.apellidos}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="mt-3">
+    <button type="submit" (click)="actualizarVehiculo(vehiculoForm)" [disabled]="!vehiculoForm.form.valid"
+      class="btn btn-primary"><i class="fas fa-save"></i> Editar Vehiculo</button>
+  </div>
+</form>

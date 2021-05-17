@@ -11,6 +11,9 @@ export class Vehiculo {
         public type_id?: Tipo,
         public driver_id?: Driver,
         public owner_id?: Owner,
+        // public type_id: number,
+        // public driver_id: number,
+        // public owner_id: number,
     ) {
 
     }

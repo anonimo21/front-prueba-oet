@@ -22,16 +22,16 @@ export class VehiculosComponent implements OnInit {
     this.modalService.nuevoUsuario.subscribe(resp => this.listarVehiculos());
   }
 
-  listarVehiculos(){
+  listarVehiculos() {
     this.vehiculosService.cargarVehiculos()
-    .subscribe((vehiculos: Vehiculo[]) => {
-      this.vehiculos = vehiculos;
-      this.cargando = false;
-      //console.log(this.vehiculos)
-    });
+      .subscribe((vehiculos: Vehiculo[]) => {
+        this.vehiculos = vehiculos;
+        this.cargando = false;
+        //console.log(this.vehiculos)
+      });
   }
 
-  borrarVehiculo(id){
+  borrarVehiculo(id) {
     Swal.fire({
       title: 'Eliminar Vehiculo?',
       text: `Esta a punto de eliminar el vehiculo número ${id}`,
@@ -52,7 +52,7 @@ export class VehiculosComponent implements OnInit {
     })
   }
 
-  abrirModal(){
+  abrirModal() {
     this.modalService.abrirModal();
   }
 

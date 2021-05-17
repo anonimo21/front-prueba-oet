@@ -26,9 +26,22 @@ export class VehiculosService {
     return this.httpClient.post(url, vehiculo); 
   }
 
+  actualizarVehiculo(vehiculo: Vehiculo){
+    const url = `${base_url}/vehicles/${vehiculo.id}`;
+    return this.httpClient.put(url, vehiculo); 
+  }
+
   borrarVehiculo(id: number){
     const url = `${base_url}/vehicles/${id}`;
     return this.httpClient.delete(url); 
+  }
+
+  obtenerVehiculoById(id: number){
+    const url = `${base_url}/vehicles/${id}`;
+    return this.httpClient.get(url)
+    .pipe(
+      map((resp: Vehiculo) => resp)
+    )
   }
 
 }

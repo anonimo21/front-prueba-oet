@@ -33,7 +33,7 @@ export class ModalComponent implements OnInit {
     this.listarPropietarios();
   }
 
-  cerrarModal(form){
+  cerrarModal(form) {
     this.modalService.cerrarModal();
     form.reset();
   }
@@ -62,6 +62,18 @@ export class ModalComponent implements OnInit {
         this.modalService.nuevoUsuario.emit(resp);
         this.modalService.cerrarModal();
         form.reset();
+      }, (err) => {
+        //console.log(err);
+        //this.modalService.cerrarModal();
+        //form.reset();
+        const errors = [];
+        Object.entries(err['error'].errors).forEach(([key, value]) => {
+          errors.push(value);
+        });
+        //console.log(errors);
+        errors.forEach(element => {
+          alert(element)
+        });
       });
   }
 
